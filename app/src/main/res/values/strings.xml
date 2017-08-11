@@ -1,0 +1,463 @@
+<resources>
+    <string name="app_name">Aura</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="signed_in">Signed in</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_up">Sign up</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="signed_in_cached">Signed in with cached credentials</string>
+    <string name="resend_confirmation">Resend Email Confirmation</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="enter_email_address">Please enter your email address</string>
+    <string name="available_timezone">Available timezones</string>
+    <string name="enter_share_email_address">Please enter the user email address to which
+        the device is to be shared.</string>
+    <string name="confirmation_resent">A confirmation email was sent. Check your email account for details.</string>
+    <string name="password_reset">An email was sent with intstructions to reset your password.</string>
+    <string name="share_success">Device is now shared.</string>
+    <string name="create_share">Create Share</string>
+    <string name="time_zone_update_success">Device timezone updated.</string>
+     <string name="oauth_empty_html"><![CDATA[<font color="#005500"><H3><i>Authenticating with [[PROVIDER]]...</i></H3></font>
+    ]]> </string>
+    <string name="email_address">Email</string>
+    <string name="email_address_new">New Email</string>
+    <string name="update_email_address">Update Email</string>
+    <string name="role">Role</string>
+    <string name="role_name">Role Name</string>
+    <string name="optional">optional</string>
+    <string name="access">Access</string>
+    <string name="read_only">Read only</string>
+    <string name="read_write">Read\//Write</string>
+    <string name="none">None</string>
+    <string name="access_control_text">Access control for the shared device. Role Name is
+        the full string(i.e. \"OEM::Ayla::EndUser\") used for RBAC. \nNote: Role Name and
+        Operation are mutually exclusive parameters.</string>
+    <string name="share_date_description">Control when the share becomes active, and when
+        and if it expires. These values are optional.</string>
+    <string name="start_date">Start Date</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="end_date">End Date</string>
+    <string name="delete_share">Delete share</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="country">Country</string>
+    <string name="phone_country_code">Phone country code</string>
+    <string name="phone_number">Phone number</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="zipcode">Zip</string>
+    <string name="sign_up_success">Sign up successful! Check your email for further instructions.</string>
+    <string name="fetching_profile">Fetching your profile from the service...</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="updating_profile">Updating your profile</string>
+    <string name="profile_udpated">Your profile was updated.</string>
+    <string name="ok">Ok</string>
+    <string name="setup_failed">Could not connect device to service. Please reset device and
+        retry</string>
+    <string name="device_registered">Device is already registered</string>
+    <string name="confirm_connection_error">Error in confirming device connection </string>
+    <string name="account_details">Account Details</string>
+    <string name="device_name">Device Name</string>
+    <string name="dsn">DSN</string>
+    <string name="product_name">Product Name</string>
+    <string name="connected_at">Connected At</string>
+    <string name="connection_status">Connection Status</string>
+    <string name="device_type">Device Type</string>
+    <string name="lan_enabled">LAN enabled</string>
+    <string name="lan_ip">LAN IP</string>
+    <string name="location">Location</string>
+    <string name="mac">MAC</string>
+    <string name="model">Model</string>
+    <string name="oem_model">OEM Model</string>
+    <string name="product_class">Product Class</string>
+    <string name="template_id">Template ID</string>
+    <string name="device_details">Device Details</string>
+    <string name="device_properties">Device Properties</string>
+    <string name="property_read_only">Property is read-only</string>
+    <string name="action_unregister">Unregister Device</string>
+    <string name="registration_type">Registration type: %s</string>
+    <string name="action_register">Register Device</string>
+    <string name="action_share">Share Device</string>
+    <string name="share_device_name">Share %s</string>
+    <string name="share_specify_role">Input role name if no access control is specified.</string>
+    <string name="capabilities">Capabilities</string>
+    <string name="you_can_share">You can share this device with another registered Ayla
+        user.</string>
+    <string name="user_email">User Email</string>
+    <string name="action_timezone">TimeZone</string>
+    <string name="register_success">Successfuly registered device</string>
+    <string name="register_error">Error in registration </string>
+    <string name="unregister_confirm">Are you sure you want to unregister this device from your account?</string>
+    <string name="unregistering">Unregistering device</string>
+    <string name="registering">Registering device</string>
+    <string name="signing_out">Signing out...</string>
+    <string name="deleting_account">Deleting account...</string>
+    <string name="signing_in_cached">Signing in with cached credentials...</string>
+    <string name="text_null">null</string>
+    <string name="fetch_all_properties">Fetch All Properties</string>
+    <string name="fetching_all_properties">Fetching all properties from the cloud...</string>
+    <string name="cannot_be_parsed">Value cannot be parsed to</string>
+    <string name="sending_signup_token">Confirming your email address...</string>
+    <string name="sign_up_complete">Sign-up complete. You may now sign in.</string>
+    <string name="reset_password_title">Reset Password</string>
+    <string name="set_new_password">Set Password</string>
+    <string name="change_password_success">Password changed successfully.</string>
+    <string name="password_no_match">Password and confirmation do not match</string>
+    <string name="updating_password">Updating your password. Please wait...</string>
+    <string name="email_send_error">Error in creating message.</string>
+    <string name="push_button">Push registration button on device</string>
+    <string name="property_notifications">Notification</string>
+    <string name="property_notification">Property Notification</string>
+    <string name="notification_name">Notification name</string>
+    <string name="condition">Condition</string>
+    <string name="has">has</string>
+    <string name="notify">Notify</string>
+    <string name="changed">Changed</string>
+    <string name="value">Value...</string>
+    <string name="any">Any</string>
+    <string name="when">When</string>
+    <string name="send_notifications_when">Send notifications when:</string>
+    <string name="is_turned_on">is turned on</string>
+    <string name="is_turned_off">is turned off</string>
+    <string name="is_detected">Motion detected</string>
+    <string name="is_stopped">Motion stopped</string>
+    <string name="on_or_off">is turned on or off</string>
+    <string name="becomes_greater_than">becomes greater than</string>
+    <string name="symbol_equals"> = </string>
+    <string name="symbol_greater_than"> &gt; </string>
+    <string name="symbol_less_than"> &lt; </string>
+    <string name="symbol_greater_or_equal"> &gt; = </string>
+    <string name="symbol_less_or_equal"> &lt; = </string>
+    <string name="becomes_less_than">becomes less than</string>
+    <string name="changes">changes</string>
+    <string name="error_value">No value specified for comparison.</string>
+    <string name="notify_contacts">Notify these contacts:</string>
+    <string name="loading_contacts">Loading Contacts...</string>
+    <string name="save_notifications">Save Notifications</string>
+    <string name="device_notifications">Notifications</string>
+    <string name="push_notifcations_not_supported">Push notifications not supported</string>
+    <string name="notifications_not_enabled">Property notifications are not available on this
+        device</string>
+    <string name="delete_notification_title">Delete Notification?</string>
+    <string name="delete_notification_message">Do you want to remove the notification \"%s\"?</string>
+    <string name="delete_notification_failed">Delete notification failed. Please try again later.</string>
+    <string name="unknown_error">An unknown error has occurred</string>
+    <string name="contact_phone_required">This contact cannot receive SMS messages</string>
+    <string name="contact_email_required">This contact cannot receive email notifications</string>
+    <string name="choose_name">Please choose a name for your notification</string>
+    <string name="no_contacts_selected">Please select at least one contact to be notified via email or SMS</string>
+    <string name="property_motion_sensor_friendly_name">Motion Sensor</string>
+    <string name="notification_created">The notification was created successfully</string>
+    <string name="no_value_chosen">Please choose a value to compare with</string>
+    <string name="start_button_text">Start</string>
+    <string name="iterations">Iterations (100 max)</string>
+    <string name="action_run_tests">Run device tests...</string>
+    <string name="stop_button_text">Stop</string>
+    <string name="clear_button_text">Clear</string>
+    <string name="all_tests">Run All Test Cases</string>
+    <string name="test_runner_title">Test Runner</string>
+    <string name="stop_after_error_textview">Stop after error (0 = never)</string>
+    <string name="confirmation_template_id">template_signup</string>
+    <string name="confirmation_email_subject">Aura bids you welcome!</string>
+    <string name="password_reset_template_id">aura_passwd_reset_template_01</string>
+    <string name="share_email_template_id">aura_passwd_reset_template_01</string>
+    <string name="password_reset_email_subject">Password Reset Request</string>
+    <string name="rename_device">Rename device</string>
+    <string name="rename_device_text">Enter the display name for your device below:</string>
+    <string name="new_value_text">Enter the new %s value for your property below:</string>
+    <string name="renaming_device">Updating device name. Please wait...</string>
+    <string name="confirm_delete_account_title">Delete Account</string>
+    <string name="confirm_delete_account_message">Are you sure you want to delete this account? This operation may not be undone.</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="share_type">Resource Type</string>
+    <string name="select_device"> Select device to setup</string>
+    <string name="setup_wizard"> Setup Wizard</string>
+    <string name="enter_regtoken"> Enter registration token</string>
+    <string name="connect_device"> Connect device to %s</string>
+    <string name="scan_devices">Scan for devices</string>
+    <string name="scanning_devices">Scanning for devices...</string>
+    <string name="connecting_to_device">Connecting to %s...</string>
+    <string name="device_scan_empty_results">No APs were returned from the device. Retrying
+        ...</string>
+    <string name="retry_scan">No APs were returned from the device. Retry scan.</string>
+    <string name="setup_permission_message">Could not create setup object- do we have permission?</string>
+    <string name="error_fetching_AP">Error in fetching APs from device</string>
+    <string name="error_scan_devices">Error in scan devices. </string>
+    <string name="no_AP_found">No device APs found </string>
+    <string name="please_enter_password">Please enter password. </string>
+    <string name="select_security">"Select Security type and password</string>
+    <string name="error_connecting_service">Error connecting to service</string>
+    <string name="error_reconnecting">Error in reconnecting to original network</string>
+    <string name="select_AP">Please select an AP to connect the device to</string>
+    <string name="scanning_APs">Device is scanning for APs...</string>
+    <string name="wifi_show_password">Show</string>
+    <string name="wifi_password">WiFi password</string>
+    <string name="setup_token_is">SetupToken for this device is %s</string>
+    <string name="connect_to_service">Connect device to service</string>
+    <string name="disconnect_AP">Disconnect AP mode </string>
+    <string name="failed_connect_device">Failed to connect to device</string>
+    <string name="connecting_to_service">Connecting device to service...</string>
+    <string name="reconnecting">Connecting back to original network...</string>
+    <string name="stop_ap">Stopping device AP mode...</string>
+    <string name="connect_success">Device has connected to the Ayla service</string>
+    <string name="connect_wifi_success">Device has connected to the WiFi network</string>
+    <string name="confirming_connection">Confirming device connection to service...</string>
+    <string name="schedule_active_switch">Active</string>
+    <string name="enabled">Enabled</string>
+    <string name="disabled">Disabled</string>
+    <string name="once">Single Event</string>
+    <string name="repeating">Daily Schedule</string>
+    <string name="timer">Timer</string>
+    <string name="starting_on">Starting:</string>
+    <string name="ending_on">Ending:</string>
+    <string name="schedule_chooose_days_help">Select the days you want the schedule to be active below:</string>
+    <string name="save_schedule">Save Schedule</string>
+    <string name="end_time">End Time</string>
+    <string name="start_time">Start Time</string>
+    <string name="ending_at">Ending At:</string>
+    <string name="starting_at">Starting At:</string>
+    <string name="schedule_name">Name:</string>
+    <string name="weekday_letter_sunday">S</string>
+    <string name="weekday_letter_monday">M</string>
+    <string name="weekday_letter_tuesday">T</string>
+    <string name="weekday_letter_wednesday">W</string>
+    <string name="weekday_letter_thursday">T</string>
+    <string name="weekday_letter_friday">F</string>
+    <string name="weekday_letter_saturday">S</string>
+    <string name="on">Turn On</string>
+    <string name="off">Turn Off</string>
+    <string name="hours">Hours</string>
+    <string name="minutes">Minutes</string>
+    <string name="device_schedules">Schedules</string>
+    <string name="schedule_properties_update_description">Select which action you would like to
+        update with this schedule:</string>
+     <string name="schedule_properties_create_description">Select which action you would like to
+        create with this schedule:</string>
+    <string name="action_value">Value</string>
+    <string name="action_execute">Execute When</string>
+    <string name="action_remove_all">Remove All</string>
+    <string name="action_save">Save</string>
+    <string name="no_actions_msg">This Schedule does not have any actions that
+        can be configured</string>
+    <string name="deleted_all_actions">Successfully Deleted All Actions</string>
+    <string name="save_schedule_msg">Successfully updated Schedule. Would you like
+        to Configure Schedule Actions for this Schedule?</string>
+     <string name="more_schedule_action_msg">Successfully Configured Schedule Actions. Would
+         you like to Add more Schedule Actions?</string>
+    <string name="updated_all_actions">Successfully Updated All Schedule Actions.Would
+         you like to Update more Schedule Actions?</string>
+    <string name="schedule_time_zone">TimeZone</string>
+    <string name="time_zone_utc">UTC</string>
+    <string name="check_ota_info">Check OTA info from Cloud</string>
+    <string name="download_ota_image">Download OTA image from cloud</string>
+    <string name="push_ota_image">Push OTA image to device</string>
+    <string name="updated_image_success">Updated OTA Image successfully</string>
+    <string name="updated_image_failed">OTA Image update failed</string>
+    <string name="ssid">SSID</string>
+    <string name="ota_scan">scan</string>
+    <string name="valid_dsn">Please enter valid dsn</string>
+    <string name="valid_ssid">Please scan the ssid of the OTA Device</string>
+    <string name="action_lan_ota">LAN OTA</string>
+    <string name="about">About</string>
+
+
+    <string-array name="action_execute_array">
+        <item>At Start</item>
+        <item>In Range</item>
+        <item>At End</item>
+    </string-array>
+
+    <string name="developer_options">Developer Options</string>
+    <string name="ap_regex">AP Regex:</string>
+    <string name="current_ssid">Phone connected to:</string>
+    <string name="dsn_label">DSN:</string>
+    <string name="dsn_gateway_label">Gateway DSN:</string>
+    <string name="choose_nodes">Select nodes to register</string>
+    <string name="choose_local_devices">Select the devices you would like to register below:</string>
+    <string name="register">Register</string>
+    <string name="no_gateway_found">Unable to find gateway device to register nodes with</string>
+    <string name="registering_device">Registering %s</string>
+    <string name="action_factory_reset">Factory Reset</string>
+    <string name="factory_reset_confirm">Really restore this device to factory defaults? This may not be undone.</string>
+    <string name="resetting">Restoring the device to factory defaults…</string>
+    <string name="via_lan">via LAN</string>
+    <string name="via_cloud">via Cloud</string>
+    <string name="via_bluetooth">via Bluetooth</string>
+    <string name="cloud">Cloud</string>
+    <string name="lan">LAN</string>
+    <string name="aura_configuration">Aura Configuration</string>
+    <string name="configuration_instructions">Choose a configuration from the list below. Additional configurations may be added via email attachments or launching a local .auraconfig file with the Aura application.</string>
+    <string name="app_id">App ID</string>
+    <string name="app_secret">App Secret</string>
+    <string name="service_type">Service Type</string>
+    <string name="service_location">Service Location</string>
+    <string name="allow_dss">Allow DSS</string>
+    <string name="allow_offline_use">Allow Offline Use</string>
+    <string name="network_timeout">Network timeout (ms)</string>
+    <string name="dss_types">SubscriptionTypes</string>
+    <string name="added_config">The configuration was added successfully</string>
+    <string name="add_config_fail">An error occurred when trying to import your configuration</string>
+    <string name="copy_config">Copy</string>
+    <string name="edit_config">Edit</string>
+    <string name="done">Done</string>
+    <string name="config_copy_modifier">(copy)</string>
+    <string name="copy_config_prompt_title">Configuration Name</string>
+    <string name="save">Save</string>
+    <string name="title_activity_editor">Aura Config Editor</string>
+    <string name="delete_config">Delete Configuration</string>
+    <string name="restore_configs">Restore Defaults</string>
+    <string name="delete_config_prompt">Really remove the configuration:</string>
+    <string name="restore_default_config_title">Restore Defaults</string>
+    <string name="restore_default_config_message">Do you want to restore the default set of configurations? All imported configurations will be removed.</string>
+    <string name="cant_remove_last_config_title">Last Configuration</string>
+    <string name="cant_remove_last_config_msg">At least one configuration needs to exist. Please copy or create a new one before removing this one.</string>
+    <string name="register_local_text">Would you like to register %1$s?</string>
+    <string name="invalid_regex">Invalid AP regex</string>
+    <string name="not_connected">Not connected</string>
+    <string name="probe_temp">Probe Temp</string>
+    <string name="probe_1">Probe 1</string>
+    <string name="probe_2">Probe 2</string>
+    <string name="cooking_time">Cook Time</string>
+    <string name="time_remaining">Time Remaining</string>
+    <string name="cooking_mode_time">TIME</string>
+    <string name="cooking_mode_temp">TEMP</string>
+    <string name="cooking_mode_meat">MEAT</string>
+    <string name="gr_device_disconnected">Not Connected</string>
+    <string name="stop_before_modifying">Stop cooking before changing settings</string>
+    <string name="choose_time">Enter Cook Time</string>
+    <string name="time_format_text">Please enter time as HH:MM:SS</string>
+    <string name="almost_done_title" formatted="false">Cooking on probe %1$d almost done!</string>
+    <string name="overdone_title" formatted="false">Probe %1$d Cooking Overdone!</string>
+    <string name="almost_done_message">Cooking on probe %1$d is almost finished!</string>
+    <string name="overdone_message">Cooking on probe %1$d is done!</string>
+    <string name="grill_right_ui">Show GrillRight UI</string>
+    <string name="configure_local_title">Configure Local Connection</string>
+    <string name="configure_local_message">This device requires additional setup to allow your mobile device to reach it. Would you like to configure this device now?</string>
+    <string name="searching_for_local_device" formatted="false">Searching for %1$s...</string>
+    <string name="local_device_connected">Configuration successful! You may now control your device from here.</string>
+    <string name="local_device_not_found">Unable to find this device. Please make sure the device is turned on and you are nearby.</string>
+    <string name="choose_local_device">Multiple devices were discovered. Please select the correct device from the list, or cancel, turn off other devices and try again.</string>
+    <string name="local_device_connect_fail">Unable to connect to the local device. Please try again later.</string>
+    <string name="wechat_login_wait">Please wait checking with WeChat Server ...</string>
+    <string name="wechat_request_cancel">User canceled the request</string>
+    <string name="wechat_request_denied">User request was denied</string>
+    <string name="wechat_install_required">Please install WeChat app from Google Play to use this feature.</string>
+    <string name="no_devices_found">No devices\n found</string>
+    <string name="click_to_add">Click \"+\" to add a \ndevice.</string>
+
+    <!-- Replace with Web client credentials for your app from https://console.developers.google
+    .com/apis/credentials. Google creates these credentials automatically when you create a
+    configuration file in https://developers.google.com/mobile/add?platform=android.
+     -->
+    <string name="server_client_id">654054971787-cnd8j8bk63hu2ovm52hribnovlml86i3.apps.googleusercontent.com</string>
+
+    <string-array name="location_options">
+        <item>United States</item>
+        <item>China</item>
+        <item>Europe</item>
+    </string-array>
+
+    <string-array name="service_options">
+        <item>Development Service</item>
+        <item>Field Service</item>
+        <item>Staging Service</item>
+    </string-array>
+
+    <string name="retry_setup">Please exit setup and retry</string>
+    <string name="disconnect_local">Disconnect from local device</string>
+    <string name="connect_local">Connect to local device</string>
+    <string name="disconnect_local_success">Device disconnected</string>
+    <string name="connect_local_success">Device connected</string>
+    <string name="disconnect_local_failure">Failed to disconnect</string>
+    <string name="connect_local_failure">Failed to connect. Please make sure you are within range of the device and try again.</string>
+    <string name="via_local_connection">via local connection</string>
+    <string name="local_device_doesnt_match">The device identifier does not match the registered device identifier. If this is a new device, you may register it.</string>
+    <string name="connecting_to_ble_device">Connecting to your Bluetooth device...</string>
+    <string name="send_push_notifications">Send push notification to this device</string>
+
+    <!--  Device types for setup screen -->{
+    <string name="ayla_evb">Ayla EVB</string>
+    <string name="smart_plug">Smart Plug</string>
+    <string name="gateway">Gateway</string>
+    <string name="node">Node</string>
+
+    <!--  Menu options in setup screen -->{
+    <string name="registration">Registration</string>
+    <string name="wifi_setup">Wifi Setup Wizard</string>
+    <string name="step_by_step_setup">Step by step Wifi Setup</string>
+
+    <!-- Setup screen -->
+    <string name="power_up_evb">Power up your EVB using a USB cable. Wait for the green LED
+    to stop flashing.</string>
+    <string name="power">Power</string>
+    <string name="select_evb_title">Select EVB</string>
+    <string name="setup_ready">Ready for Setup</string>
+    <string name="select_evb_description">Select the entry below that matches the unique code on
+        your
+        EVB.</string>
+    <string name="password_error">Password should be at least 8 characters long</string>
+    <string name="add_device">Add Device</string>
+    <string name="powered_evb">I\'ve powered the EVB</string>
+    <string name="rescan_evb">Rescan for EVBs</string>
+    <string name="rescan_wifi">Rescan for WiFi Networks</string>
+    <string name="connecting_to">Connecting to %s ...</string>
+    <string name="discovering_networks">Discovering nearby networks...</string>
+    <string name="select_wifi">Select WiFi Network</string>
+    <string name="plug_in_evb">Plug it in</string>
+    <string name="saved_networks">SAVED NETWORKS</string>
+    <string name="discovered_networks">DISCOVERED NETWORKS</string>
+    <string name="other">Other...</string>
+    <string name="other_wifi">Other WiFi Network</string>
+    <string name="enter_network_info">Enter the network information.</string>
+    <string name="network_name">Network Name(SSID)</string>
+    <string name="security">Security: </string>
+    <string name="save_wifi">Save WiFi Settings</string>
+    <string name="save_wifi_settings_desc">Saving WiFi settings will make setting up
+        additional devices a lot easier.</string>
+    <string name="join_wifi">Join WiFi network</string>
+    <string name="enter_wifi_password">Enter WiFi Password"</string>
+    <string name="enter_wifi_password_text">Enter the password for \"%s\"</string>
+    <string name="connecting_evb">Connecting EVB to \"%s\"</string>
+    <string name="confirming_connection_status">Confirming the EVB\'s connection status...</string>
+    <string name="adding_evb">Adding the EVB to your account...</string>
+    <string name="choose_device_type">What type of device would you like to add?</string>
+    <string name="advanced_options">Advanced</string>
+    <string name="personalize_evb">Personalize EVB</string>
+    <string name="successfully_registered">Congratulations! You successfully added the EVB
+        to your account and connected to the \"%s\" WiFi network.\n\nYour EVB can be
+        customized by tapping the image, Device Name, or Time Zone.</string>
+    <string name="return_to_devices">Return to Device List</string>
+    <string name="reset_evb_title">Reset EVB</string>
+    <string name="reset_evb_description">Reset the EVB by following these steps and then
+        try setting it up again.</string>
+    <string name="reset_evb_step1">Press and continue to hold down the blue button.</string>
+    <string name="reset_evb_step2">Tap and release the black button.</string>
+    <string name="reset_evb_step3">When the blue LED stops flashing, release the blue
+        button.</string>
+    <string name="repeat_setup">Repeat Setup</string>
+    <string name="missing_permissions">Required permissions are missing. </string>
+    <string name="not_available">Not available at this time. </string>
+
+
+</resources>

@@ -1,0 +1,12 @@
+*.iml
+.gradle
+/local.properties
+.DS_Store
+/build
+/captures
+/libraries
+/.idea
+/fastlane
+release/fastlane/report.xml
+release/fastlane/README.md
+/localdevice

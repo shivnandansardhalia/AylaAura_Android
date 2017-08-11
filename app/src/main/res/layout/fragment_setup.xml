@@ -1,0 +1,530 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@android:color/background_light"
+             tools:context="com.aylanetworks.aura.DeviceListFragment">
+
+    <ProgressBar
+        android:id="@+id/setup_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/device_list_layout"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_device_type"
+        android:textSize="15sp"
+        android:lineSpacingExtra="2dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:background="@color/pearl_bush"
+        android:padding="10dp"/>
+
+        <ListView
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:background="@android:color/white"
+            android:id="@+id/device_type_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:choiceMode="singleChoice" />
+
+        <TextView
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/advanced_options"
+            android:textSize="15sp"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:background="@color/pearl_bush"/>
+
+        <ListView
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:background="@android:color/white"
+            android:id="@+id/advanced_options_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:choiceMode="singleChoice" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/evb_image_layout"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+       <TextView
+           android:layout_margin="10dp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="@string/power_up_evb"
+           android:textSize="15sp"
+           android:lineSpacingExtra="2dp"
+           android:textColor="@android:color/black"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/image_evb_plug_in"
+            android:id="@+id/imgview_evb_plugin"
+            android:layout_gravity="center"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/evb_scan_layout"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/select_evb_description"
+            android:textSize="15sp"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@android:color/black"
+            android:layout_margin="10dp"/>
+
+        <ListView
+            android:layout_marginTop="10dp"
+            android:id="@+id/device_scan_listview"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:choiceMode="singleChoice" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/wifi_scan_results_layout"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/saved_networks"
+        android:textSize="15sp"
+        android:textAllCaps="true"
+        android:lineSpacingExtra="2dp"
+        android:textColor="@android:color/black"
+        android:layout_margin="10dp"/>
+
+        <ListView
+            android:layout_marginTop="10dp"
+            android:id="@+id/saved_networks_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:choiceMode="singleChoice" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/discovered_networks"
+            android:textSize="15sp"
+            android:textAllCaps="true"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@android:color/black"
+            android:layout_margin="10dp"/>
+
+        <ListView
+            android:layout_marginTop="10dp"
+            android:id="@+id/discovered_networks_list"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:choiceMode="singleChoice" />
+
+        <TextView
+            android:id="@+id/textview_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/other"
+            android:textSize="15sp"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@android:color/black"
+            android:layout_margin="10dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/other_wifi__layout"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_network_info"
+            android:textSize="15sp"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@android:color/black"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_network_name"
+            android:hint="@string/network_name"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_network_password"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:layout_alignBaseline="@+id/other_wifi_show_password"/>
+
+            <CheckBox
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wifi_show_password"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/other_wifi_show_password" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save_wifi"
+                android:textSize="15sp"
+                android:lineSpacingExtra="2dp"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="10dp"
+                android:id="@+id/textview_save_wifi"/>
+
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/toggle_save_wifi"
+                android:layout_alignParentRight="true"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_save_wifi"
+                android:text="@string/save_wifi_settings_desc"
+                android:textSize="13sp"
+                android:lineSpacingExtra="2dp"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="10dp"/>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/reset_evb_layout"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/reset_evb_description"
+            android:textSize="15sp"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@android:color/black"
+            android:layout_margin="10dp"
+            android:textStyle="bold"/>
+
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:text="1"
+            android:textSize="25sp"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/add_button"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:id="@+id/txtview_1"/>
+
+        <TextView
+            android:layout_toRightOf="@+id/txtview_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/reset_evb_step1"
+            android:textSize="15sp"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="10dp"/>
+
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:text="2"
+                android:textSize="25sp"
+                android:lineSpacingExtra="2dp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/add_button"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:id="@+id/txtview_2"/>
+
+            <TextView
+                android:layout_toRightOf="@+id/txtview_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reset_evb_step2"
+                android:textSize="15sp"
+                android:lineSpacingExtra="2dp"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="10dp"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:text="3"
+                android:textSize="25sp"
+                android:lineSpacingExtra="2dp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/add_button"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:id="@+id/txtview_3"/>
+
+            <TextView
+                android:layout_toRightOf="@+id/txtview_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reset_evb_step3"
+                android:textSize="15sp"
+                android:lineSpacingExtra="2dp"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="10dp"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@drawable/image_evb_reset"
+            android:layout_gravity="center_horizontal"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/personalize_evb_layout"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/successfully_registered"
+            android:textSize="15sp"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@android:color/black"
+            android:id="@+id/textview_register_success"/>
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/image_evb"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ayla EVB"
+            android:id="@+id/edittext_product_name"
+            android:backgroundTint="@color/button_grey"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:labelFor="@+id/timezone_spinner"
+                android:textColor="@android:color/black"
+                android:text="Time Zone:"
+                android:textSize="18sp"/>
+
+            <Spinner
+                android:id="@+id/timezone_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/nested_scrollView">
+
+        <TextView
+            android:id="@+id/snackbar_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <Button
+        android:id="@+id/btn_setup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_margin="20dp"
+        android:layout_gravity="bottom"
+        android:textColor="@android:color/white"
+        android:text="@string/powered_evb"
+        android:textAllCaps="false"
+        android:background="@drawable/setup_screen_button_green"/>
+
+    <LinearLayout
+        android:id="@+id/join_wifi_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/textView_enter_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="2dp"
+            android:text="@string/enter_wifi_password_text"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/editText_wifi_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:layout_toLeftOf="@+id/wifi_show_password"
+                android:layout_alignBaseline="@+id/wifi_show_password"/>
+
+            <CheckBox
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wifi_show_password"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/wifi_show_password" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/textview_save_discovered_wifi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="2dp"
+                android:text="@string/save_wifi"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"/>
+
+            <Switch
+                android:id="@+id/toggle_save_discovered_wifi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_save_discovered_wifi"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="2dp"
+                android:text="@string/save_wifi_settings_desc"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"/>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</FrameLayout>

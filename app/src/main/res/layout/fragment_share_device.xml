@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                            android:layout_height="match_parent"
+                                            android:layout_width="match_parent"
+                                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                                            android:background="@color/bg_grey">
+
+    <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textview_share_devicename"
+            android:textSize="25dp"
+            android:text="@string/share_device_name"
+            android:textColor="@android:color/black"
+            android:layout_margin="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/user_email"
+                style="@android:style/TextAppearance.Medium"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/background_edittext"
+                android:padding="5dp"
+                android:id="@+id/edittext_user_email"
+                android:hint="@string/user_email"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:background="@drawable/background_edittext"
+            android:text="@string/you_can_share"
+            android:layout_margin="10dp"
+            android:textColor="@android:color/black"
+            android:padding="5dp" android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/role_name"
+                style="@android:style/TextAppearance.Medium"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/background_edittext"
+                android:padding="5dp"
+                android:id="@+id/edittext_role_name"
+                android:hint="@string/optional"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/capabilities"
+            android:layout_margin="10dp"
+            style="@android:style/TextAppearance.Medium"/>
+
+        <android.support.design.widget.TabLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:id="@+id/tablayout_share"
+            app:tabTextAppearance="@style/customTabText"
+            app:tabPadding="5dp"
+            >
+
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/read_write"
+                />
+
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/read_only"/>
+
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/none"/>
+
+        </android.support.design.widget.TabLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_edittext"
+            android:text="@string/access_control_text"
+            android:layout_margin="10dp"
+            android:padding="5dp" android:gravity="center"
+            android:textColor="@android:color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/start_date"
+                style="@android:style/TextAppearance.Medium"
+                />
+
+            <TextView
+                android:id="@+id/share_start_date"
+                android:padding="5dp"
+                android:text="@string/optional"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/expiry_date"
+                style="@android:style/TextAppearance.Medium"
+                />
+
+            <TextView
+                android:id="@+id/share_end_date"
+                android:padding="5dp"
+                android:gravity="center"
+                android:text="@string/optional"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </TextView>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_edittext"
+            android:text="@string/share_date_description"
+            android:layout_margin="10dp"
+            android:padding="5dp" android:gravity="center"
+            android:textColor="@android:color/black"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/ayla_green"
+            android:textColor="@android:color/white"
+            android:text="@string/create_share"
+            android:id="@+id/btn_share_device"/>
+
+    </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+

@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+              android:background="@color/gr_bg"
+             tools:context="com.aylanetworks.aura.localdevice.GrillRightFragment">
+
+    <TextView
+        android:id="@+id/gr_disconnected"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gr_empty_bg"
+        android:textColor="@color/gr_empty_fg"
+        android:text="@string/gr_device_disconnected"
+        android:textSize="64sp"
+        android:visibility="gone"
+        android:gravity="center|center_vertical" />
+
+    <com.aylanetworks.aura.localdevice.GrillRightProbe
+        android:id="@+id/probe1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </com.aylanetworks.aura.localdevice.GrillRightProbe>
+
+    <!-- Spacer view -->
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/gr_text"
+        android:layout_height="4dp"/>
+
+    <com.aylanetworks.aura.localdevice.GrillRightProbe
+        android:id="@+id/probe2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </com.aylanetworks.aura.localdevice.GrillRightProbe>
+</LinearLayout>

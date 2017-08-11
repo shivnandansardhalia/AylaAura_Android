@@ -1,0 +1,4 @@
+include ':app', ':aylasdk', ':websocketLibrary'
+project(':aylasdk').projectDir = new File('libraries/Android_AylaSDK_Public/library')
+project(':websocketLibrary').projectDir = new File
+        ('libraries/Android_AylaSDK_Public/websocketLibrary/websocketLib')

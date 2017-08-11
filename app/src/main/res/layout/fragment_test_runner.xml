@@ -1,0 +1,105 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.aylanetworks.aura.test.TestRunnerFragment">
+
+    <LinearLayout
+        android:id="@+id/top_layout"
+        android:layout_alignParentTop="true"
+        android:layout_margin="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/device_name_textview"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_margin="4dp"
+            android:text="Device Name"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/test_selector"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@id/top_layout"
+        android:layout_above="@+id/config_layout"
+        android:layout_margin="4dp"
+        android:id="@+id/messages_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/config_layout"
+        android:layout_above="@+id/control_layout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_weight="2"
+            android:gravity="center|center_vertical"
+            android:layout_gravity="fill"
+            android:text="@string/iterations"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_weight="2"
+            android:id="@+id/iterations_edit_text"
+            android:text="1"
+            android:inputType="number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_weight="2"
+            android:gravity="center|center_vertical"
+            android:layout_gravity="fill"
+            android:text="@string/stop_after_error_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_weight="2"
+            android:id="@+id/stop_after_error_edit_text"
+            android:text="1"
+            android:inputType="number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/control_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/clear_button"
+            android:text="@string/clear_button_text"
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_weight="3"
+            android:id="@+id/start_stop_button"
+            android:text="@string/start_button_text"
+            android:layout_gravity="center|end"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:background="@android:color/transparent"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <!-- Top-left contains details depending on the cooking mode -->
+    <TextView
+        android:id="@+id/cooking_mode_text"
+        android:textColor="@color/gr_highlight"
+        android:layout_alignParentStart="true"
+        android:layout_margin="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cooking Mode"/>
+
+    <FrameLayout
+        android:id="@+id/control_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:layout_below="@+id/cooking_mode_text"
+        android:layout_above="@+id/mode_bar">
+
+        <!-- Timer mode UI -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:id="@+id/control_layout_timer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textColor="@color/gr_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:text="@string/cooking_time"/>
+            <TextView
+                android:id="@+id/timer_reset_time"
+                android:layout_gravity="start"
+                android:textColor="@color/gr_lcd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8:00:00"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="end|bottom"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@color/gr_text"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_height="wrap_content"
+                    android:text="@string/time_remaining"/>
+                <TextView
+                    android:textColor="@color/gr_lcd"
+                    android:id="@+id/timer_current_time"
+                    android:layout_gravity="end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8:00:00"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/control_layout_meat"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="This is the meat view"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/control_layout_temp"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="This is the temperature view"/>
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- Mode bar on the bottom -->
+    <LinearLayout
+        android:id="@+id/mode_bar"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/mode_timer"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_alarm_black_48dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/mode_meat"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:scaleType="fitXY"
+            android:background="@android:color/transparent"
+            android:src="@drawable/cow"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/mode_temp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:scaleType="fitXY"
+            android:background="@android:color/transparent"
+            android:src="@drawable/thermometer"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"/>
+
+        <Button
+            android:id="@+id/start_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:layout_gravity="end"
+            android:text="@string/start_button_text"/>
+
+    </LinearLayout>
+
+    <!-- Current temperature and start / stop live on the right -->
+
+    <TextView
+        android:id="@+id/probe_temp"
+        android:textColor="@color/gr_lcd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:padding="12dp"
+        style="@android:style/TextAppearance.Large"
+        android:text="350.6°"/>
+
+</RelativeLayout>

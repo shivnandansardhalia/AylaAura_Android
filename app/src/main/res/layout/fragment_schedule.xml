@@ -1,0 +1,383 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/schedule_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="8dp"
+        android:layout_above="@+id/save_schedule"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+
+            <LinearLayout
+                android:id="@+id/dead_focus"
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal"/>
+
+            <LinearLayout
+                android:id="@+id/schedule_title_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal"
+                android:padding="6dp">
+
+                <TextView
+                    style="@android:style/TextAppearance.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="6dp"
+                    android:text="@string/schedule_name"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/schedule_title_edittext"
+                    style="@android:style/TextAppearance.Large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:inputType="textCapWords|textNoSuggestions"
+                    android:singleLine="true"
+                    android:textStyle="italic"
+                    />
+            </LinearLayout>
+
+            <Switch
+                android:id="@+id/schedule_enabled_switch"
+                style="@android:style/TextAppearance.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/schedule_title_layout"
+                android:padding="10dp"
+                android:switchTextAppearance="@android:style/TextAppearance.Large"
+                android:text="@string/schedule_active_switch"
+                android:textOff="@string/disabled"
+                android:textOn="@string/enabled"
+                android:textStyle="bold"/>
+
+            <!-- The schedule details layout below is hidden / shown based on whether the schedule
+            is active or not -->
+            <RelativeLayout
+                android:id="@+id/schedule_details_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/schedule_enabled_switch"
+                android:layout_marginBottom="8dp"
+                android:animateLayoutChanges="true"
+                >
+
+                <!-- One-shot or repeating -->
+                <LinearLayout
+                    android:id="@+id/radio_button_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:animateLayoutChanges="true"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/schedule_type_radio_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
+                        <RadioButton
+                            android:id="@+id/radio_timer"
+                            style="@android:style/TextAppearance.Medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/timer"
+                            />
+
+                        <View
+                            android:layout_width="32dp"
+                            android:layout_height="match_parent"/>
+
+
+                        <RadioButton
+                            android:id="@+id/radio_repeating"
+                            style="@android:style/TextAppearance.Medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/repeating"
+                            />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/complex_schedule_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/radio_button_layout"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+
+                    <!-- Schedule Days -->
+                    <LinearLayout
+                        android:id="@+id/schedule_days_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/schedule_chooose_days_help"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_margin="8dp"
+                            >
+
+                            <Button
+                                style="@android:style/Widget.Button"
+                                android:id="@+id/button_sunday"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/weekday_button"
+                                android:text="@string/weekday_letter_sunday"
+                                android:textColor="@android:color/white"/>
+
+                            <Button
+                                android:id="@+id/button_monday"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/weekday_button"
+                                android:text="@string/weekday_letter_monday"
+                                android:textColor="@android:color/white"/>
+
+                            <Button
+                                android:id="@+id/button_tuesday"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/weekday_button"
+                                android:text="@string/weekday_letter_tuesday"
+                                android:textColor="@android:color/white"/>
+
+                            <Button
+                                android:id="@+id/button_wednesday"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/weekday_button"
+                                android:text="@string/weekday_letter_wednesday"
+                                android:textColor="@android:color/white"/>
+
+                            <Button
+                                android:id="@+id/button_thursday"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/weekday_button"
+                                android:text="@string/weekday_letter_thursday"
+                                android:textColor="@android:color/white"/>
+
+                            <Button
+                                android:id="@+id/button_friday"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/weekday_button"
+                                android:text="@string/weekday_letter_friday"
+                                android:textColor="@android:color/white"/>
+
+                            <Button
+                                android:id="@+id/button_saturday"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/weekday_button"
+                                android:text="@string/weekday_letter_saturday"
+                                android:textColor="@android:color/white"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- On / off times -->
+                    <LinearLayout
+                        android:id="@+id/on_off_times_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/schedule_days_layout"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <Button
+                                android:id="@+id/button_turn_on"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="2dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/toggle_button_bg"
+                                android:text="@string/on"/>
+
+                            <Button
+                                android:id="@+id/button_turn_off"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="2dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/toggle_button_bg"
+                                android:text="@string/off"/>
+
+                        </LinearLayout>
+
+
+                        <TimePicker
+                            android:id="@+id/time_on_off_picker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_margin="6dp"
+                            android:timePickerMode="spinner"
+                            android:contentDescription="hours:minutes" />
+
+                        <TextView
+                            style="@android:style/TextAppearance.Medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:paddingRight="6dp"
+                            android:text="@string/schedule_time_zone"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/time_zone_for_schedule"
+                            style="@android:style/TextAppearance.Medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:paddingRight="6dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Timer layout -->
+                <LinearLayout
+                    android:id="@+id/schedule_timer_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/radio_button_layout"
+                    android:layout_margin="8dp"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:id="@+id/timer_turn_on_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/toggle_button_bg"
+                            android:text="@string/on"/>
+
+                        <Button
+                            android:id="@+id/timer_turn_off_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/toggle_button_bg"
+                            android:text="@string/off"/>
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/timepicker_layout"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="16dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="30dp">
+                            <TextView
+                                android:id="@+id/hours_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:text="@string/hours"/>
+                            <TextView
+                                android:id="@+id/minutes_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:text="@string/minutes"/>
+                        </LinearLayout>
+                        <TimePicker
+                            android:id="@+id/timer_duration_picker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:timePickerMode="spinner"/>
+                    </RelativeLayout>
+                    <TextView
+                        style="@android:style/TextAppearance.Medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingRight="6dp"
+                        android:text="@string/schedule_time_zone"
+                        android:textStyle="bold"/>
+                    <TextView
+                        style="@android:style/TextAppearance.Medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/time_zone_utc"
+                        android:paddingRight="6dp"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@id/save_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_margin="10dp"
+        android:text="@string/save_schedule"
+        />
+</RelativeLayout>

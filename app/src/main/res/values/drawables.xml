@@ -1,0 +1,14 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <item name="ic_menu_camera" type="drawable">@android:drawable/ic_menu_camera</item>
+    <item name="ic_menu_gallery" type="drawable">@android:drawable/ic_menu_gallery</item>
+    <item name="ic_menu_slideshow" type="drawable">@android:drawable/ic_menu_slideshow</item>
+    <item name="ic_menu_manage" type="drawable">@android:drawable/ic_menu_manage</item>
+    <item name="ic_menu_delete" type="drawable">@android:drawable/ic_menu_delete</item>
+    <item name="ic_menu_share" type="drawable">@android:drawable/ic_menu_share</item>
+    <item name="ic_menu_send" type="drawable">@android:drawable/ic_menu_send</item>
+    <item name="ic_menu_info" type="drawable">@android:drawable/ic_menu_info_details</item>
+    <item name="ic_menu_preferences" type="drawable">@android:drawable/ic_menu_preferences</item>
+    <item name="ic_menu_device_list" type="drawable">@drawable/ic_devices_black_48dp</item>
+    <item name="ic_menu_sign_out" type="drawable">@drawable/ic_exit_to_app_black_48dp</item>
+    <item name="ic_menu_wifi_setup" type="drawable">@drawable/ic_signal_wifi_4_bar_black_24dp</item>
+</resources>

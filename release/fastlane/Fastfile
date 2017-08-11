@@ -1,0 +1,293 @@
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/docs
+# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "1.81.0"
+
+default_platform :android
+VERSION_FILE="build.gradle"
+BUILD_SCRIPT_F = "../gradle_scripts/ayla_aura_build.sh"
+
+def check_env_var(var_arr)
+    var_arr.each { |v|
+      if !ENV.has_key?(v) or ENV[v].empty?
+        puts "Please set environment variable #{v} probably before running this command."
+        exit!
+      end
+    }
+end
+
+#def get_version_string
+#    version_sentence = `find ../app -name build.gradle | xargs grep "versionName"`
+#    version_string = version_sentence.gsub!(/.*\"(.*)\".*/, "\\1")
+#    version_string.chomp
+#end
+
+def check_required_argument(arg, arg_string_format)
+    if arg.nil? or arg.empty?
+        puts "please add required #{arg_string_format} argument for this command."
+        exit!
+    end
+end
+
+def get_version_file
+    file_name = `find ../app -name #{VERSION_FILE}`
+    if file_name.nil? or file_name.empty?
+        puts "Can not find version file by command #{file_name}. Please double check path and file name"
+        exit!
+    else
+        file_name=file_name.chomp
+    end
+end
+
+def get_version_string
+    vFile=get_version_file
+    version_sentence = `cat #{vFile} | grep "versionName "`
+    version_string = version_sentence.gsub!(/.*"(.*)".*/, "\\1")
+    version_string.chomp
+end
+
+def set_version_string(version)
+    vFile = get_version_file
+    file_contents = File.read(vFile)
+    file_contents.gsub!(/(.*versionName )"(.*)"(.*)/, "\\1\"#{version}\"\\3")
+    File.write(vFile, file_contents)
+end
+
+def get_android_studio_version
+    vFile="/Applications/\"Android Studio.app\"/Contents/Info.plist"
+    version_sentence = `cat #{vFile} | grep -A1 "<key>CFBundleShortVersionString</key>"`
+    version_string = version_sentence.split("\n").last.gsub!(/.*<string>(.*)<\/string>.*/, "\\1")
+    version_string + "\n"
+end
+
+def get_gradle_version
+    vFile="../gradle/wrapper/gradle-wrapper.properties"
+    version_string = `cat #{vFile} | grep distributionUrl | cut -d'/' -f 5 | cut -d'-' -f 2`
+    version_string
+end
+
+def set_build_tool_version
+    vAndroidStudio = get_android_studio_version
+    vGradle = get_gradle_version
+    readmeFile = "../README.md"
+
+    puts "Your Android Studio version is: #{vAndroidStudio.chomp}"
+    puts "Your Gradle version is: #{vGradle}"
+    file_contents = File.read(readmeFile)
+    file_contents.gsub!(/(.*Android Studio: )(.*[\s])(.*)/, "\\1#{vAndroidStudio}\\3")
+    file_contents.gsub!(/(.*Gradle: )(.*[\s])(.*)/, "\\1#{vGradle}\\3")
+    File.write(readmeFile, file_contents)
+end
+
+def post_release_version
+    cur_release = get_version_string
+
+    # increment version number
+    vStrings = cur_release.split('.')
+    minor = vStrings[1].to_i
+    minor += 1
+    cur_release.gsub!(/([\d]*\.)([\d]*\.)([\d]*)(.*)/, "\\1#{minor.to_s}.00\\4")
+
+    # add "-rc1" to construct a new version string
+    cur_release + "-rc1"
+end
+
+def modify_component_pointer
+    script_contents = File.read(BUILD_SCRIPT_F)
+    # do replacement in this line: AYLA_SDK_BRANCH=${AYLA_SDK_BRANCH:-release/5.3.01}
+    script_contents.gsub!(/(.*)(-release\/[\d]*\.[\d]*\.[\d]*)(.*)/, "\\1-develop\\3")
+    File.write(BUILD_SCRIPT_F, script_contents)
+end
+
+platform :android do
+  before_all do
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    gradle(task: "test")
+  end
+
+  desc "Submit a new Beta Build of aGoogle flavor to Crashlytics Beta"
+  lane :beta do
+    gradle(task: "assembleaGoogleRelease")
+    crashlytics
+
+    # sh "your_script.sh"
+    # You can also use other beta testing services here
+  end
+
+  desc "Deploy a new version of aGoogle flavor to the Google Play Beta"
+  desc "need to set your Google signing key credentails in envrionmemnt variables KEYSTORE, KEYSTORE_PASSWORD, KEY_ALIAS, and KEY_PASSWORD"
+  lane :googlebeta do
+    check_env_var(["KEYSTORE", "KEYSTORE_PASSWORD", "KEY_ALIAS", "KEY_PASSWORD", "JSON_KEY_FILE"])
+    gradle(task: "assembleaGoogleRelease")
+    supply(json_key: ENV['JSON_KEY_FILE'], track: "beta")
+  end
+
+  desc "Deploy a new version of aGoogle flavor to the Google Play Production"
+  desc "need to set your Google signing key credentails in envrionmemnt variables KEYSTORE, KEYSTORE_PASSWORD, KEY_ALIAS, and KEY_PASSWORD"
+  lane :deploy do
+    check_env_var(["KEYSTORE", "KEYSTORE_PASSWORD", "KEY_ALIAS", "KEY_PASSWORD", "JSON_KEY_FILE"])
+    gradle(task: "assembleaGoogleRelease")
+    supply(json_key: ENV['JSON_KEY_FILE'], track: "production")
+  end
+
+  lane :show_version do
+    release_number = get_version_string
+    puts "Your release version is: " + release_number
+  end
+
+  lane :set_version do |options|
+    check_required_argument(options[:version], "version:x.y.z")
+    set_version_string(options[:version])
+  end
+
+  lane :set_build_tool_version do
+    # automatically set build too version in README.md file
+    set_build_tool_version
+  end
+
+  lane :post_release do
+    # get latest develop branch
+    ensure_git_branch(branch: "develop")
+    git_pull
+    ensure_git_status_clean
+
+    # set post_release version
+    new_version = post_release_version
+    set_version_string(new_version);
+    puts "new version is: " + new_version
+
+    # modify component pointer to develop
+    modify_component_pointer
+
+    # show the changes
+    git_command(full_command: "git status")
+    git_command(full_command: "git diff")
+
+    puts "Are the above changes correct(y/n)?"
+    answer = $stdin.getch
+    exit! unless answer.eql?("y")
+
+    # push the commit
+    git_command(full_command: "git add .")
+    git_command(full_command: "git commit -m'make post release changes'")
+
+    puts "Are you sure to push to develop now(y/n)?"
+    answer = $stdin.getch
+    exit! unless answer.eql?("y")
+    git_command(full_command: "git push origin develop")
+  end
+
+  desc "make a release. This lane requires: 1) \"public\" and \"origin\" remote have been configured; 2) developers should have already added release notes in README.md"
+  desc "and modified version number strings in various files; 3) there is already a release/x.y.z branch existing. Developers make a PR from release branch to master"
+  desc "branch, release engineer merges PR, than run command like"
+  desc " fastlane release "
+  lane :release do |options|
+    check_env_var(["GITHUB_API_TOKEN", "RELEASE_USER"])
+    internal_repo="AylaNetworks/Android_Aura"
+    public_repo="#{internal_repo}_Public"
+    release_number = get_version_string
+    check_required_argument(release_number, "release_number:x.y.z")
+    puts "Your release version is: " + release_number + ", is this correct(y/n)?"
+    answer = $stdin.getch
+    exit! unless answer.eql?("y")
+    v="v"+release_number
+
+    # push master branch from internal repo to public repo
+    git_command(full_command: "git config user.email " + ENV["RELEASE_USER"])
+    git_command(full_command: "git checkout master")
+    ensure_git_branch(branch: "master")
+    git_pull
+    ensure_git_status_clean
+    git_command(full_command: "git push public master");
+
+    # this will trigger massive release emails immediately so be careful
+    #publish a release which will create the tag on public. this requires you to set your own environment variable GITHUB_API_TOKEN
+    set_github_release(api_token: ENV["GITHUB_API_TOKEN"], repository_name: public_repo, tag_name: v, name: v+" Release", description: "see README.md for details")
+    # pull tag to local
+    git_command(full_command: "git pull public master --tags");
+    # push tag to internal repo
+    git_command(full_command: "git push origin #{v}");
+
+    #when the above auto-publish is not used, create and push tags here.
+    #git_command(full_command: "git tag -a #{v} -m \"#{v} tag\"");
+    #git_command(full_command: "git push origin #{v}");
+    #git_command(full_command: "git push public #{v}");
+
+    # push a release branch
+    git_command(full_command: "git checkout release/#{release_number}")
+    # origin must have this release branch already
+    git_command(full_command: "git pull")
+    ensure_git_branch(branch: "release/#{release_number}")
+    ensure_git_status_clean
+    git_command(full_command: "git push public release/#{release_number}")
+
+    # push to incoming branch
+    git_command(full_command: "git checkout incoming")
+    git_command(full_command: "git pull")
+    ensure_git_branch(branch: "incoming")
+    ensure_git_status_clean
+    git_command(full_command: "git push public incoming")
+
+    # create PR to merge master back to develop and notify tech lead
+    git_command(full_command: "git checkout master")
+    ensure_git_status_clean
+    create_pull_request(api_token: ENV["GITHUB_API_TOKEN"], title: "merge back to develop for #{v} related changes", repo: internal_repo, base: "develop")
+
+    # if not auto-publish above, log in with release user on github and do release if everything is OK.
+    # send release notification email
+    puts "Congratulations! Code push completed successfully. Do release pubish if not yet when everything is OK."
+  end
+
+  desc "untag a release. In case you have new commits for a release after you have already tagged the release."
+  desc "use this command to untag the release. So that you can do \"release\" again to include new commits."
+  lane :untag do |options|
+    release_number = get_version_string
+    check_required_argument(release_number, "release_number:x.y.z")
+    puts "You want to untag version: " + release_number + ", is this correct(y/n)?"
+    answer = $stdin.getch
+    exit! unless answer.eql?("y")
+    v="v"+release_number
+
+    git_command(full_command: "git tag -d #{v}")
+    git_command(full_command: "git push origin :refs/tags/#{v}")
+    git_command(full_command: "git push public :refs/tags/#{v}")
+  end
+
+  # You can define as many lanes as you want
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+    
+    # slack(
+    #   message: "Successfully deployed new App Update."
+    # )
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
+  end
+end
+
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/docs/Platforms.md
+# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
+
+# fastlane reports which actions are used
+# No personal data is sent or shared. Learn more at https://github.com/fastlane/enhancer

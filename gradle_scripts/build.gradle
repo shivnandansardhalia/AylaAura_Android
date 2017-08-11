@@ -1,0 +1,24 @@
+
+task execTasks(type: Exec) {
+    doFirst {
+
+        if(System.getProperty('os.name').contains('Mac')){
+            // for mac
+            commandLine './ayla_aura_build.sh'
+        }
+        else if(System.getProperty('os.name').contains('Windows')){
+            //add script for windows
+            commandLine './ayla_aura_build.cmd'
+        }
+
+
+
+    }
+
+
+}
+
+
+
+
+

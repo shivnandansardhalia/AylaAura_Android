@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Devices">
+        <menu>
+            <item
+                android:id="@+id/device_list"
+                android:icon="@drawable/ic_menu_device_list"
+                android:title="Device List"/>
+
+            <item
+                android:id="@+id/shares_list"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Shares"/>
+
+            <item
+                android:id="@+id/ota"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Lan OTA"/>
+        </menu>
+    </item>
+
+    <item android:title="Account">
+        <menu>
+            <item
+                android:id="@+id/edit_account"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Account Information"/>
+            <item
+                android:id="@+id/sign_out"
+                android:icon="@drawable/ic_menu_sign_out"
+                android:title="Sign out"/>
+            <item
+                android:id="@+id/delete_account"
+                android:icon="@drawable/ic_menu_delete"
+                android:title="Delete Account"/>
+        </menu>
+    </item>
+
+    <item android:title="Support">
+        <menu>
+            <item
+                android:id="@+id/email_logs"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Email logs"/>
+            <item
+                android:id="@+id/about"
+                android:icon="@drawable/ic_menu_info"
+                android:title="@string/about"/>
+        </menu>
+    </item>
+
+</menu>
