@@ -369,7 +369,6 @@ public class AccountDetailsFragment extends Fragment {
         template.setEmailSubject(emailSubject);
         String language = Locale.getDefault().getDisplayLanguage();
 
-        Log.e("ROHIT", language);
         if (language.equalsIgnoreCase("हिन्दी")) {
             template.setEmailTemplateId("template_hindi");
             template.setEmailSubject("आभा में आपका स्वागत है");
