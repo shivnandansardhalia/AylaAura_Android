@@ -178,7 +178,7 @@
     <string name="all_tests">Run All Test Cases</string>
     <string name="test_runner_title">Test Runner</string>
     <string name="stop_after_error_textview">Stop after error (0 = never)</string>
-    <string name="confirmation_template_id">template_signup</string>
+    <string name="confirmation_template_id">template_english</string>
     <string name="confirmation_email_subject">Aura bids you welcome!</string>
     <string name="password_reset_template_id">aura_passwd_reset_template_01</string>
     <string name="share_email_template_id">aura_passwd_reset_template_01</string>
@@ -461,3 +461,4 @@
 
 
 </resources>
+
