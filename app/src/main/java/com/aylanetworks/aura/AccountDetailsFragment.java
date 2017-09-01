@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,8 @@ import com.aylanetworks.aylasdk.AylaSessionManager;
 import com.aylanetworks.aylasdk.AylaUser;
 import com.aylanetworks.aylasdk.error.AylaError;
 import com.aylanetworks.aylasdk.error.ErrorListener;
+
+import java.util.Locale;
 
 
 /**
@@ -57,6 +60,10 @@ public class AccountDetailsFragment extends Fragment {
     private AylaUser _user;
     private LinearLayout _passwordGroupLayout;
 
+    public AccountDetailsFragment() {
+        // Required empty public constructor
+    }
+
     /**
      * Returns a new AccountDetailsFragment. If the user field is non-null, the fragment will be
      * populated with the information from the specified user, and the password fields will be
@@ -74,10 +81,6 @@ public class AccountDetailsFragment extends Fragment {
         frag.setArguments(bundle);
 
         return frag;
-    }
-
-    public AccountDetailsFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -121,7 +124,7 @@ public class AccountDetailsFragment extends Fragment {
         // See if we're editing an existing profile or not
         boolean editExisting = false;
         Bundle args = getArguments();
-        if ( args != null ) {
+        if (args != null) {
             editExisting = args.getBoolean(ARG_EDIT_PROFILE);
         }
 
@@ -313,7 +316,7 @@ public class AccountDetailsFragment extends Fragment {
         user.setZip(_zip.getText().toString());
 
         // Service wants null passwords if we are updating profiles.
-        if (user.getPassword().length() == 0 ){
+        if (user.getPassword().length() == 0) {
             user.setPassword(null);
         }
 
@@ -342,7 +345,7 @@ public class AccountDetailsFragment extends Fragment {
         _phoneNumber.setText(user.getPhone());
 
         // Update our title if we are editing an account
-        if ( _user != null) {
+        if (_user != null) {
             getActivity().setTitle(R.string.account_details);
         }
     }
@@ -364,6 +367,14 @@ public class AccountDetailsFragment extends Fragment {
 
         template.setEmailTemplateId(emailTemplateId);
         template.setEmailSubject(emailSubject);
+        String language = Locale.getDefault().getDisplayLanguage();
+
+        Log.e("ROHIT", language);
+        if (language.equalsIgnoreCase("हिन्दी")) {
+            template.setEmailTemplateId("template_hindi");
+            template.setEmailSubject("आभा में आपका स्वागत है");
+        }
+
         AylaNetworks.sharedInstance().getLoginManager().signUp(newUser, template,
                 new Response.Listener<AylaUser>() {
                     @Override
@@ -384,7 +395,7 @@ public class AccountDetailsFragment extends Fragment {
     private void signUpFinish() {
         // Finish signup view and show Login view
         Activity activity = getActivity();
-        if(activity != null){
+        if (activity != null) {
             View v = activity.findViewById(R.id.layout_account_details);
             if (v != null) {
                 v.setVisibility(View.GONE);
@@ -396,7 +407,7 @@ public class AccountDetailsFragment extends Fragment {
         }
     }
 
-    private void setUpdateEmailUI(){
+    private void setUpdateEmailUI() {
         _updateEmailLayout.setVisibility(View.VISIBLE);
         _updateEmailButton.setVisibility(View.VISIBLE);
         _email.setEnabled(false);
