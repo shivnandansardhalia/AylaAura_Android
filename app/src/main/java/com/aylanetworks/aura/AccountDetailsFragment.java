@@ -368,7 +368,7 @@ public class AccountDetailsFragment extends Fragment {
         template.setEmailTemplateId(emailTemplateId);
         template.setEmailSubject(emailSubject);
         String language = Locale.getDefault().getDisplayLanguage();
-
+        
         if (language.equalsIgnoreCase("हिन्दी")) {
             template.setEmailTemplateId("template_hindi");
             template.setEmailSubject("आभा में आपका स्वागत है");
@@ -413,3 +413,4 @@ public class AccountDetailsFragment extends Fragment {
 
     }
 }
+
