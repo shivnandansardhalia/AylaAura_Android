@@ -28,6 +28,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -70,6 +71,7 @@ import com.google.android.gms.common.api.Status;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import static android.Manifest.permission.READ_CONTACTS;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
@@ -270,6 +272,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 AylaEmailTemplate template = new AylaEmailTemplate();
                 template.setEmailSubject(emailSubject);
                 template.setEmailTemplateId(emailTemplateId);
+                String language = Locale.getDefault().getDisplayLanguage();
+                if (language.equalsIgnoreCase("हिन्दी")) {
+                    template.setEmailTemplateId("template_hindi");
+                    template.setEmailSubject("आभा में आपका स्वागत है");
+                }
+
                 AylaNetworks.sharedInstance().getLoginManager()
                         .resendConfirmationEmail(et.getText().toString(), template,
                                 new Response.Listener<AylaAPIRequest.EmptyResponse>() {
